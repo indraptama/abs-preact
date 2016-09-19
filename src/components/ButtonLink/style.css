@@ -1,0 +1,59 @@
+@import "../../style/variables.css";
+
+.Button {
+  background-color: transparent;
+  border: 1px solid transparent!important; /* remove default border on submit */
+  color: var(--button-text-color);
+  display: inline-block!important;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  padding: 1rem 3em;
+  position: relative;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 300ms ease;
+  z-index: 1;
+}
+
+.Button span {
+  transform: translate3d(0,0,0);
+  transition: transform 250ms ease;
+  display: inline-block;
+}
+
+
+.Button:before{
+  content: "";
+  background-color: var(--button-color);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -2;
+  transition: all 300ms ease;
+}
+
+.Button:after {
+  background-color: var(--button-color-change);
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 300ms ease-out;
+  width: 0;
+  z-index: -1;
+}
+
+/*Hover and focus state */
+.Button:hover {color: var(--button-text-color-change)}
+.Button:hover:after {
+  width: 100%;
+}
+.Button:hover span {
+  transform: translate3d(0.0em,0,0);
+  transition: transform 250ms ease;
+  transition-delay: 100ms;
+}
