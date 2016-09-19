@@ -1,20 +1,21 @@
 import { h, Component } from 'preact';
 import axios from 'axios';
 import SquareThumb from '../SquareThumb';
+import _ from 'lodash';
 
 export default class ThumbnailList extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        loading: true
+        titles:''
       };
     }
 
   componentWillMount() {
-    axios.get('https://api.github.com/users/indraptama/repos')
+    axios.get('http://localhost/wordpress/wp-json/wp/v2/posts')
       .then((response) => {
         this.setState({
-          title: response.title
+          titles: response.data
         })
       })
   }
@@ -22,10 +23,21 @@ export default class ThumbnailList extends Component {
 
 
   render() {
+    var Titles = _.map(this.state.titles, (title) => {
+      return (
+        <li>{title.name}</li>
+      )
+    });
+
+
     return (
-      <div style="width:25%">
-        <SquareThumb imgUrl={this.state.imgUrl} alt={this.state.alt}/>
-        <h1>{this.state.title}</h1>
+      <div className="container mh-auto cf">
+        <div className="w-50 fl">
+          <ul>{Titles}</ul>
+        </div>
+        <div className="w-50 fl">
+          <ul>{Titles}</ul>
+        </div>
       </div>
     );
   }

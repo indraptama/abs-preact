@@ -11,9 +11,16 @@
 }
 
 .container {
-
+  max-width: 800px;
 }
 
 html {
   line-height: 1.5;
+}
+
+
+
+.mh-auto {
+  margin-left: auto;
+  margin-right: auto;
 }

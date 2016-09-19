@@ -15,7 +15,7 @@ import style from './style.css';
 
 
 const ButtonLink = ({ name,link,rel }) => (
-  <a class={style.Button} href={link} rel={rel}>
+  <a className="Button" href={link} rel={rel}>
     <span>{name}</span>
   </a>
 );

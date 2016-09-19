@@ -48,7 +48,10 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				loader: 'babel'
+				loader: 'babel',
+				query: {
+					'plugins': ['lodash']
+				}
 			},
 			{
 				test: /\.(less|css)$/,
