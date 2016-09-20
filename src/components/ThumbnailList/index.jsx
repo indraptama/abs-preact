@@ -7,15 +7,20 @@ export default class ThumbnailList extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        titles:''
+        repos:'',
+        titles:'',
+        excerpts:''
       };
     }
 
   componentWillMount() {
-    axios.get('http://localhost/wordpress/wp-json/wp/v2/posts')
+    axios.get(this.props.source)
       .then((response) => {
+        console.log(response.data)
         this.setState({
-          titles: response.data
+          products: response.data.products
+          // titles: response.title,
+          // excerpts: response.excerpt
         })
       })
   }
@@ -23,13 +28,15 @@ export default class ThumbnailList extends Component {
 
 
   render() {
-    var Titles = _.map(this.state.titles, (title) => {
+    var Titles = _.map(this.state.products, (product) => {
       return (
-        <li>{title.name}</li>
+        <div>
+        <li>{product.name}</li>
+
+        </div>
       )
     });
-
-
+    
     return (
       <div className="container mh-auto cf">
         <div className="w-50 fl">

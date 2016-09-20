@@ -6,6 +6,7 @@ import cssNext from 'postcss-cssnext';
 import cssImport from 'postcss-import';
 import cssFocus from 'postcss-focus';
 import path from 'path';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -104,6 +105,7 @@ module.exports = {
 			allChunks: true,
 			disable: ENV!=='production'
 		}),
+    new LodashModuleReplacementPlugin,
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
 			'process.env': JSON.stringify({ NODE_ENV: ENV })

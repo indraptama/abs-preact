@@ -10,7 +10,7 @@ export default class Home extends Component {
 				<h1>Home</h1>
 				<p>This is the Home component.</p>
         <ButtonLink name="next" link="hallo.html" rel="dedede"/>
-        <ThumbnailList />
+        <ThumbnailList source="http://localhost:3000/db"/>
 			</div>
 		);
 	}
