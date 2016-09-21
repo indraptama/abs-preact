@@ -10,20 +10,37 @@ export default class ThumbnailList extends Component {
         repos:'',
         titles:'',
         excerpts:'',
-        products:''
+        products:[]
       };
     }
+
+  // componentWillMount() {
+  //   axios.get(this.props.source)
+  //     .then((response) => {
+  //       //console.log(response.data.products)
+  //       const splitResponse = _.chunk(response.data.products, 10);
+  //       this.setState({
+  //         products: splitResponse
+  //       })
+  //     })
+  // }
 
   componentWillMount() {
     axios.get(this.props.source)
       .then((response) => {
-        //console.log(response.data.products)
-        const splitResponse = _.chunk(response.data.products, 10);
+        var responseSlice = response.data.products;
+        var test = _.slice(responseSlice, 0,4);
+        console.log(test);
+
+
         this.setState({
-          products: splitResponse
-        })
-      })
+          products: test
+          // titles: response.title,
+          // excerpts: response.excerpt
+        });
+      });
   }
+
 
   render() {
     var Titles = _.map(this.state.products, (product) => {
@@ -33,6 +50,12 @@ export default class ThumbnailList extends Component {
         </div>
       )
     });
+
+    // var Titles = this.state.products.map((product) => {
+    //     return (
+    //       <li>{product.name}</li>
+    //     )
+    // });
 
     return (
       <div className="container mh-auto cf">
