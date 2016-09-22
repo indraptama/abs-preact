@@ -14,8 +14,8 @@ import style from './style.css';
 // };
 
 
-const ButtonLink = ({ name,link,rel }) => (
-  <a className="Button" href={link} rel={rel}>
+const ButtonLink = ({ name,link,rel, clickAction }) => (
+  <a className="Button" href={link} rel={rel} onClick={clickAction}>
     <span>{name}</span>
   </a>
 );

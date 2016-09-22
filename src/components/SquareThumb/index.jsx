@@ -23,7 +23,7 @@ const SquareThumb = ({ imgUrl, alt }) => {
 
   return (
     <div className="FlexEmbed" style={Styles.coverImage}>
-      <div className="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
+      <div className="FlexEmbed-ratio FlexEmbed-ratio--16by9s"></div>
       <div className="FlexEmbed-content">
         <img src={imgUrl} alt={alt} style={Styles.hideImage}/>
       </div>
