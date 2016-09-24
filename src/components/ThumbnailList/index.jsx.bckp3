@@ -1,0 +1,46 @@
+import { h, render, Component } from 'preact';
+import axios from 'axios';
+import GalleryThumb from '../GalleryThumb';
+import ButtonLink from '../ButtonLink';
+import _ from 'lodash';
+
+
+
+export default class ThumbnailList extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      datas:[]
+    }
+  }
+
+  componentWillMount() {
+    axios.get(this.props.dataUrl) // Data Url
+      .then((response) => {
+        let theDatas = _.clone(response.data);
+        this.setState({
+          datas: theDatas
+        })
+      });
+  }
+
+
+  render() {
+    var ThumbnailList = _.map(this.state.datas, (data, i) => {
+      return(
+        <div className="galThumb fl w-100 w-50-m w-60-l foo" key={i +'hallo'}>
+          <GalleryThumb
+            title={data.name}
+            imgUrl={data.images[0]}
+          />
+        </div>
+      )
+    })
+
+    return (
+      <div className="galThumbList flex flex-wrap cf">
+          {ThumbnailList}
+      </div>
+    );
+  }
+}

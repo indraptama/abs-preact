@@ -73,6 +73,7 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
+    "animejs": "^1.1.1",
     "axios": "^0.14.0",
     "lodash": "^4.15.0",
     "preact": "^6.0.0",

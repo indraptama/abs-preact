@@ -2,6 +2,7 @@
 @import "suitcss-components-flex-embed";
 @import "tachyons";
 
+@custom-media --breakpoint-large screen and (min-width: 60em);
 
 
 /* Static CSS */
@@ -11,7 +12,7 @@
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1440px;
 }
 
 html {
@@ -25,4 +26,27 @@ html {
 .mh-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.b0 {
+  bottom: 0;
+}
+
+.l-4 {
+  left: -4rem;
+}
+
+
+
+@media (--breakpoint-large) {
+
+  .galThumbList > .galThumb:nth-child(4n+2) {
+    width: 40%!important;
+    align-self: flex-end;
+  }
+
+  .galThumbList > .galThumb:nth-child(4n+3) {
+    width: 40%!important;
+  }
+
 }
