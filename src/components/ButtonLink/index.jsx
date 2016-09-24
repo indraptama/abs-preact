@@ -15,8 +15,13 @@ import style from './style.css';
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const ButtonLink = ({ name,link,rel }) => (
   <a class={style.Button} href={link} rel={rel}>
+=======
+const ButtonLink = ({ name,link,rel, clickAction }) => (
+  <a className="Button" href={link} rel={rel} onClick={clickAction}>
+>>>>>>> origin/master
 =======
 const ButtonLink = ({ name,link,rel, clickAction }) => (
   <a className="Button" href={link} rel={rel} onClick={clickAction}>

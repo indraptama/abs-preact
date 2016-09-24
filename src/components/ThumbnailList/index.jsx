@@ -4,6 +4,9 @@ import axios from 'axios';
 import GalleryThumb from '../GalleryThumb';
 =======
 import SquareThumb from '../SquareThumb';
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 import ButtonLink from '../ButtonLink';
 import _ from 'lodash';
@@ -13,6 +16,7 @@ import _ from 'lodash';
 export default class ThumbnailList extends Component {
   constructor(props) {
     super(props);
+<<<<<<< HEAD
 <<<<<<< HEAD
     this.state= {
       datas:[]
@@ -25,15 +29,27 @@ export default class ThumbnailList extends Component {
     this.handleClick = this.handleClick.bind(this);
     }
 >>>>>>> origin/master
+=======
+    this.state = {
+      products:[]
+    };
+    this.handleClick = this.handleClick.bind(this);
+    }
+>>>>>>> origin/master
 
   componentWillMount() {
     axios.get(this.props.dataUrl) // Data Url
       .then((response) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
         let theDatas = _.clone(response.data.feed.entry);
         console.log(theDatas);
         this.setState({
           datas: theDatas
+=======
+        this.setState({
+          products: response.data.products
+>>>>>>> origin/master
 =======
         this.setState({
           products: response.data.products
